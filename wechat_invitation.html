@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>诚挚邀请</title>
+    <!-- 微信分享元数据 -->
+    <meta property="og:title" content="诚挚邀请您参加我们的活动">
+    <meta property="og:description" content="期待您的光临，共庆美好时刻">
+    <meta property="og:image" content="https://picsum.photos/id/292/400/300">
+    <meta property="og:type" content="article">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E63946',
+                        secondary: '#457B9D',
+                        accent: '#F1FAEE',
+                        dark: '#1D3557'
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif SC"', 'serif'],
+                        sans: ['"Noto Sans SC"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+            .bg-blur {
+                backdrop-filter: blur(6px);
+            }
+            .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0px); }
+            }
+            .wechat-btn {
+                -webkit-tap-highlight-color: transparent;
+            }
+        }
+    </style>
+    
+    <!-- 引入适合微信的中文字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-accent font-sans text-dark overflow-x-hidden -webkit-overflow-scrolling:touch;">
+    <!-- 微信顶部提示条 -->
+    <div class="bg-secondary/90 text-white text-center py-2 text-xs bg-blur sticky top-0 z-50">
+        <i class="fa fa-info-circle mr-1"></i> 上下滑动查看完整邀请函
+    </div>
+    
+    <!-- 邀请函容器 -->
+    <div class="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-2">
+        <!-- 背景装饰 -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div class="absolute -top-16 -left-16 w-48 h-48 rounded-full bg-primary/20 animate-float"></div>
+            <div class="absolute top-1/3 -right-24 w-64 h-64 rounded-full bg-secondary/20 animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-0 left-1/4 w-56 h-56 rounded-full bg-primary/10 animate-float" style="animation-delay: 4s;"></div>
+        </div>
+        
+        <!-- 顶部导航 -->
+        <nav class="w-full py-3 px-5 flex justify-between items-center relative z-10">
+            <div class="text-xs text-secondary font-light">
+                <i class="fa fa-calendar-o mr-1"></i>敬请期待
+            </div>
+            <div class="text-xs text-secondary font-light wechat-share-btn">
+                <i class="fa fa-share-alt mr-1"></i>分享
+            </div>
+        </nav>
+        
+        <!-- 邀请函内容 -->
+        <main class="w-full max-w-md mx-auto px-5 relative z-10 flex-grow">
+            <!-- 标题部分 -->
+            <section class="text-center py-6 opacity-0 transform translate-y-6 transition-all duration-800 ease-out" id="title-section">
+                <h1 class="font-serif text-[clamp(1.8rem,5vw,2.5rem)] font-bold text-secondary mb-3 leading-tight">诚挚邀请</h1>
+                <div class="w-16 h-0.5 bg-primary mx-auto my-4"></div>
+                <p class="text-dark/70 text-base italic font-serif">与我们共同庆祝这一美好时刻</p>
+            </section>
+            
+            <!-- 主图部分 -->
+            <section class="my-4 rounded-xl overflow-hidden shadow-lg transform transition-all duration-500 hover:scale-[1.01] opacity-0" id="image-section">
+                <img src="https://picsum.photos/id/292/800/600" alt="邀请函主图，展示优雅的庆祝场景" class="w-full h-auto" onclick="previewImage(this.src)">
+            </section>
+            
+            <!-- 活动详情 -->
+            <section class="bg-white/80 bg-blur rounded-xl p-6 shadow-lg my-6 opacity-0 transform translate-y-6 transition-all duration-800 ease-out delay-200" id="details-section">
+                <h2 class="font-serif text-xl text-secondary text-center mb-5">活动详情</h2>
+                
+                <div class="space-y-5">
+                    <div class="flex items-start">
+                        <div class="bg-primary/20 p-2 rounded-full mr-3 mt-0.5">
+                            <i class="fa fa-calendar text-secondary text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-dark text-sm">日期时间</h3>
+                            <p class="text-dark/70 mt-1 text-sm">2023年10月15日 18:30</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-primary/20 p-2 rounded-full mr-3 mt-0.5">
+                            <i class="fa fa-map-marker text-secondary text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-dark text-sm">活动地点</h3>
+                            <p class="text-dark/70 mt-1 text-sm">星辰宴会厅，幸福大道123号</p>
+                            <button class="text-primary text-xs mt-1 wechat-btn" onclick="openLocation()">
+                                <i class="fa fa-location-arrow mr-0.5"></i>导航至此处
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="bg-primary/20 p-2 rounded-full mr-3 mt-0.5">
+                            <i class="fa fa-info-circle text-secondary text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-dark text-sm">活动介绍</h3>
+                            <p class="text-dark/70 mt-1 text-sm">我们诚挚邀请您参加这场特别的聚会，共同分享喜悦与祝福，创造美好回忆。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 邀请语 -->
+            <section class="text-center my-8 font-serif text-base text-dark/80 leading-relaxed opacity-0 transform translate-y-6 transition-all duration-800 ease-out delay-400" id="invitation-text">
+                <p>时光荏苒，岁月如歌</p>
+                <p class="my-3">我们诚挚邀请您拨冗出席</p>
+                <p>与我们一同见证美好时刻</p>
+            </section>
+            
+            <!-- 确认按钮 -->
+            <section class="flex justify-center space-x-3 my-10 opacity-0 transform translate-y-6 transition-all duration-800 ease-out delay-600" id="rsvp-section">
+                <button class="px-6 py-2.5 bg-primary text-white rounded-full shadow-md hover:bg-primary/90 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-sm wechat-btn">
+                    接受邀请
+                </button>
+                <button class="px-6 py-2.5 bg-white text-primary border border-primary rounded-full shadow-md hover:bg-gray-50 transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-sm wechat-btn">
+                    无法参加
+                </button>
+            </section>
+            
+            <!-- 底部联系信息 -->
+            <footer class="text-center text-dark/60 text-xs py-5 border-t border-dark/10 opacity-0 transform translate-y-6 transition-all duration-800 ease-out delay-800" id="footer">
+                <p class="mb-2"><i class="fa fa-phone mr-1"></i> 联系电话：<a href="tel:12345678910" class="wechat-btn">123-4567-8910</a></p>
+                <p><i class="fa fa-envelope-o mr-1"></i> 邮箱：<a href="mailto:invitation@example.com" class="wechat-btn">invitation@example.com</a></p>
+            </footer>
+        </main>
+        
+        <!-- 微信底部提示 -->
+        <div class="w-full bg-dark/80 text-white text-center py-2 text-xs bg-blur fixed bottom-0 z-50">
+            <i class="fa fa-lightbulb-o mr-1"></i> 点击右上角可分享给好友
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // 页面加载完成后显示元素并添加动画
+        document.addEventListener('DOMContentLoaded', function() {
+            // 延迟显示各个部分，创造层次感
+            setTimeout(() => {
+                document.getElementById('title-section').classList.remove('opacity-0', 'translate-y-6');
+            }, 200);
+            
+            setTimeout(() => {
+                document.getElementById('image-section').classList.remove('opacity-0');
+            }, 600);
+            
+            setTimeout(() => {
+                document.getElementById('details-section').classList.remove('opacity-0', 'translate-y-6');
+            }, 900);
+            
+            setTimeout(() => {
+                document.getElementById('invitation-text').classList.remove('opacity-0', 'translate-y-6');
+            }, 1200);
+            
+            setTimeout(() => {
+                document.getElementById('rsvp-section').classList.remove('opacity-0', 'translate-y-6');
+            }, 1500);
+            
+            setTimeout(() => {
+                document.getElementById('footer').classList.remove('opacity-0', 'translate-y-6');
+            }, 1800);
+            
+            // 为按钮添加交互效果
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const response = this.textContent.trim() === '接受邀请' ? '已接受邀请' : '已确认无法参加';
+                    
+                    // 显示反馈信息
+                    const feedback = document.createElement('div');
+                    feedback.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-dark text-white px-5 py-3 rounded-lg shadow-2xl z-50 opacity-0 transition-opacity duration-300 text-sm';
+                    feedback.textContent = response;
+                    document.body.appendChild(feedback);
+                    
+                    // 淡入效果
+                    setTimeout(() => {
+                        feedback.classList.add('opacity-100');
+                    }, 10);
+                    
+                    // 2秒后淡出并移除
+                    setTimeout(() => {
+                        feedback.classList.remove('opacity-100');
+                        setTimeout(() => {
+                            feedback.remove();
+                        }, 300);
+                    }, 2000);
+                });
+            });
+            
+            // 分享按钮点击提示
+            document.querySelector('.wechat-share-btn').addEventListener('click', function() {
+                alert('请点击右上角菜单进行分享');
+            });
+        });
+        
+        // 微信环境图片预览功能
+        function previewImage(src) {
+            // 模拟微信图片预览行为
+            const preview = document.createElement('div');
+            preview.className = 'fixed inset-0 bg-black/95 z-50 flex items-center justify-center opacity-0 transition-opacity duration-300';
+            preview.innerHTML = `
+                <img src="${src}" class="max-w-full max-h-screen object-contain" />
+                <button class="absolute top-4 right-4 text-white text-2xl">
+                    <i class="fa fa-times"></i>
+                </button>
+            `;
+            document.body.appendChild(preview);
+            document.body.style.overflow = 'hidden';
+            
+            // 显示预览
+            setTimeout(() => {
+                preview.classList.add('opacity-100');
+            }, 10);
+            
+            // 关闭预览
+            preview.querySelector('button').addEventListener('click', function() {
+                preview.classList.remove('opacity-100');
+                setTimeout(() => {
+                    preview.remove();
+                    document.body.style.overflow = '';
+                }, 300);
+            });
+        }
+        
+        // 打开位置功能
+        function openLocation() {
+            // 实际项目中可调用微信JS-SDK的openLocation接口
+            alert('即将打开地图导航至：星辰宴会厅，幸福大道123号');
+        }
+    </script>
+</body>
+</html>
+    
